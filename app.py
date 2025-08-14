@@ -1,6 +1,8 @@
 import streamlit as st
 import tempfile
 import os
+from utils import arrow_friendly_df
+
 from python_script import (
     compare_requested_series_from_github,  # ✅ added
     update_master_series,
