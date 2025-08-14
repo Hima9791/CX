@@ -1,8 +1,6 @@
 import streamlit as st
 import tempfile
 import os
-from python_script import arrow_friendly_df
-
 from python_script import (
     compare_requested_series_from_github,  # ✅ added
     update_master_series,
@@ -55,8 +53,7 @@ if menu == "Compare Series":
 
             st.success("✅ Comparison completed!")
             st.dataframe(df_result)
-            safe_df = arrow_friendly_df(result_df)
-            st.dataframe(safe_df, use_container_width=True)
+
             output_path = os.path.join(tempfile.mkdtemp(), "comparison_result.xlsx")
             df_result.to_excel(output_path, index=False)
             with open(output_path, "rb") as f:
